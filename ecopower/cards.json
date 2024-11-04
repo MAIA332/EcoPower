@@ -1,0 +1,66 @@
+[
+    {
+        "id":"57d68e0a-24b5-43b3-bf55-74b468c72398",
+        "title":"Carregamento Solar Inovador",
+        "text":"Nunca mais fique sem bateria, mesmo longe de uma tomada! Este celular inovador vem equipado com uma avançada tecnologia de carregamento solar, que permite recuperar energia apenas com a exposição à luz solar. Com células solares de alta eficiência integradas diretamente na estrutura do dispositivo, ele é capaz de capturar energia até mesmo em condições de baixa luminosidade. Ideal para quem está sempre em movimento, o celular mantém-se carregado em qualquer lugar – seja durante uma trilha, na praia ou em uma viagem longa. Além disso, ele conta com uma bateria otimizada para consumo inteligente de energia, garantindo mais autonomia e durabilidade para você aproveitar ao máximo cada momento.",
+        "linkText":"Nunca mais fique na mão!",
+        "linkRedirect":"/blog",
+        "imageSrc":"/solarPanels.avif",
+        "author":"Ayla Guimarães",
+        "data":"02/11/2024",
+        "tags":["Energia limpa","Energia  solar","Carregamento solar"],
+        "content":[
+            {
+                "subtitle":"",
+                "pharagraphs":[
+                    "Mais de 600 jogos e aplicativos apresentam tecnologias RTX, e a cada semana novos jogos integrando NVIDIA DLSS, NVIDIA Reflex e efeitos avançados com ray tracing são lançados ou anunciados, proporcionando a experiência definitiva de PC para jogadores GeForce RTX. Esta semana, há uma tonelada de novos lançamentos e anúncios, então vamos mergulhar.",
+                    "Hoje, Alan Wake 2: The Lake House chega, adicionando um novo capítulo de ação primorosamente renderizada para os jogadores experimentarem. Em PCs GeForce RTX Série 40, você pode jogar com os mais altos níveis de qualidade de imagem e desempenho graças aos efeitos com ray tracing completo e suporte para DLSS 3.5 com Ray Reconstruction.",
+                    "Industry Giant 4.0, No More Room In Hell 2 e The Axis Unseen também serão lançados esta semana, cada um com suporte desde o primeiro dia para DLSS 3 com Super Resolution e Frame Generation, e na próxima semana, Dragon Age™: The Veilguard, Horizon Zero Dawn™ Remastered e Red Dead Redemption seguirão o exemplo."
+                ]
+            }
+        ]
+
+    },
+    {
+        "id":"a8298008-80f1-441b-80d1-d6a1842eda46",
+        "title":"Desempenho Ultrarápido",
+        "text":"Equipado com o mais novo processador de ponta, este celular entrega um desempenho superior para todas as tarefas, desde abrir aplicativos pesados até realizar múltiplas tarefas ao mesmo tempo. Conte com uma experiência fluida, com respostas rápidas e eficientes, perfeito para quem precisa de um dispositivo que acompanhe um ritmo acelerado.",
+        "linkText":"Aprimore sua experiência de visualização",
+        "linkRedirect":"/blog",
+        "imageSrc":"/processor.avif",
+        "author":"Ayla Guimarães",
+        "data":"02/11/2024",
+        "tags":["Energia limpa","Energia  solar","Carregamento solar"],
+        "content":[
+            {
+                "subtitle":"",
+                "pharagraphs":[
+                    "Mais de 600 jogos e aplicativos apresentam tecnologias RTX, e a cada semana novos jogos integrando NVIDIA DLSS, NVIDIA Reflex e efeitos avançados com ray tracing são lançados ou anunciados, proporcionando a experiência definitiva de PC para jogadores GeForce RTX. Esta semana, há uma tonelada de novos lançamentos e anúncios, então vamos mergulhar.",
+                    "Hoje, Alan Wake 2: The Lake House chega, adicionando um novo capítulo de ação primorosamente renderizada para os jogadores experimentarem. Em PCs GeForce RTX Série 40, você pode jogar com os mais altos níveis de qualidade de imagem e desempenho graças aos efeitos com ray tracing completo e suporte para DLSS 3.5 com Ray Reconstruction.",
+                    "Industry Giant 4.0, No More Room In Hell 2 e The Axis Unseen também serão lançados esta semana, cada um com suporte desde o primeiro dia para DLSS 3 com Super Resolution e Frame Generation, e na próxima semana, Dragon Age™: The Veilguard, Horizon Zero Dawn™ Remastered e Red Dead Redemption seguirão o exemplo."
+                ]
+            }
+        ]
+    },
+    {
+        "id":"c46e40e3-20e5-4baf-b5ba-f98169694f9c",
+        "title":"Tela com Qualidade Superior",
+        "text":"A tela deste celular é de altíssima qualidade, oferecendo cores vibrantes, contraste aprimorado e detalhes ultra-nítidos. Com tecnologia AMOLED de última geração, cada imagem ganha vida, proporcionando uma experiência imersiva ao assistir vídeos, jogar ou navegar na web. Além disso, o design de bordas ultrafinas proporciona uma visualização ampla e sem distrações.",
+        "linkText":"Aprimore a Sua Experiência Gamer",
+        "linkRedirect":"/blog",
+        "imageSrc":"/mobileGame.avif",
+        "author":"Ayla Guimarães",
+        "data":"02/11/2024",
+        "tags":["Energia limpa","Energia  solar","Carregamento solar"],
+        "content":[
+            {
+                "subtitle":"",
+                "pharagraphs":[
+                    "Mais de 600 jogos e aplicativos apresentam tecnologias RTX, e a cada semana novos jogos integrando NVIDIA DLSS, NVIDIA Reflex e efeitos avançados com ray tracing são lançados ou anunciados, proporcionando a experiência definitiva de PC para jogadores GeForce RTX. Esta semana, há uma tonelada de novos lançamentos e anúncios, então vamos mergulhar.",
+                    "Hoje, Alan Wake 2: The Lake House chega, adicionando um novo capítulo de ação primorosamente renderizada para os jogadores experimentarem. Em PCs GeForce RTX Série 40, você pode jogar com os mais altos níveis de qualidade de imagem e desempenho graças aos efeitos com ray tracing completo e suporte para DLSS 3.5 com Ray Reconstruction.",
+                    "Industry Giant 4.0, No More Room In Hell 2 e The Axis Unseen também serão lançados esta semana, cada um com suporte desde o primeiro dia para DLSS 3 com Super Resolution e Frame Generation, e na próxima semana, Dragon Age™: The Veilguard, Horizon Zero Dawn™ Remastered e Red Dead Redemption seguirão o exemplo."
+                ]
+            }
+        ]
+    }
+]
