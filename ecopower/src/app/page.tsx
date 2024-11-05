@@ -3,7 +3,6 @@
 // Home component
 import React, { useState, useEffect, useCallback } from "react";
 import Navbar from "./components/navbar";
-import Image from "next/image";
 import Card from "./components/card";
 import data from "../../cards.json";
 import Submenu from "./components/submenu";
@@ -12,10 +11,12 @@ import TypebotBubble from "./components/typebotBubble";
 import Carousel from "./components/carrousell";
 import Button from "./components/button";
 import Footer from "./components/footer";
+import Image from "next/image";
 
 const Home: React.FC = () => {
   const [isSubmenuFixed, setIsSubmenuFixed] = useState<boolean>(false);
   const [prevScrollY, setPrevScrollY] = useState<number>(0);
+  const [mainImage, setMainImage] = useState<string>("/ra.jpg");
 
   const handleScroll = useCallback(() => {
     const scrollY = window.scrollY || window.scrollY;
@@ -32,6 +33,29 @@ const Home: React.FC = () => {
 
     setPrevScrollY(scrollY);
   }, [prevScrollY]);
+
+  const changeImage = (zoomLevel:string) => {
+    let imageUrl = '';
+
+    switch (zoomLevel) {
+      case 'macro':
+        imageUrl = '/ra.jpg';
+        break;
+      case '0.5x':
+        imageUrl = '/05.jpg';
+        break;
+      case '1x':
+        imageUrl = '/1.jpg';
+        break;
+      case '2x':
+        imageUrl = '/2.jpg';
+        break;
+      default:
+        imageUrl = '/ra.jpg';
+    }
+
+    setMainImage(imageUrl);
+  };
 
   useEffect(() => {
     const onScroll = () => {
@@ -56,10 +80,9 @@ const Home: React.FC = () => {
     buttonVariant: 'light' | 'dark' | 'disable'; 
   };
 
-
   const carouselSlides: CarouselSlide[] = [
     {
-      src: "/sizeComp.avif",
+      src: "/photo-1730653223607-d06982f92a74.avif",
       alt: "Banner Image 1",
       title: "Eco Power",
       description: "O poder do Light Charge chegou.",
@@ -78,9 +101,8 @@ const Home: React.FC = () => {
     }
   ];
 
-
   return (
-    <div className="bg-slate-950 !scroll-smooth">
+    <div className="bg-white !scroll-smooth">
       <Navbar />
       <TypebotBubble />
 
@@ -93,7 +115,7 @@ const Home: React.FC = () => {
       {/* Carousel Banner */}
       <Carousel slides={carouselSlides} />
       <div className="container mx-auto p-8">
-        <h1 className="text-3xl font-bold text-center mb-8 text-slate-100">Características e Benefícios Adicionais</h1>
+        <h1 className="text-3xl font-bold text-center mb-8 text-black">Características e Benefícios Adicionais</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="cardsSc">
           {data.map((item) => (
             <FadeInItem key={item.id}>
@@ -109,21 +131,21 @@ const Home: React.FC = () => {
           ))}
         </div>
       </div>
-      <div>
       <div className="relative flex flex-col items-center justify-center h-screen bg-black text-white text-center overflow-hidden">
-      <FadeInItem>
-        <video
-          className="absolute top-0 left-0 w-full h-full object-cover"
-          src="/productRenderPlaceholder.mp4"
-          autoPlay
-          loop
-          muted
-        />
-      </FadeInItem>
-
+        <FadeInItem>
+          <video
+            className="absolute top-0 left-0 w-full h-full object-cover"
+            src="/productRenderPlaceholder.mp4"
+            autoPlay
+            loop
+            muted
+          />
+        </FadeInItem>
         <div className="text-xl mb-4 relative z-10">DESIGN</div>
-        <h1 className="text-3xl font-bold mb-8 relative z-10">Mais inovação,<br />menos emissões
-          <p><Button
+        <h1 className="text-3xl font-bold mb-8 relative z-10">
+          Mais inovação,<br />menos emissões
+          <p>
+            <Button
               onClick={() => window.location.href = "/store"}
               variant={"light"}
               className="text-lg font-semibold mt-5"
@@ -132,13 +154,46 @@ const Home: React.FC = () => {
             </Button>
           </p>
         </h1>
-        
-        <div className="absolute right-4 bottom-4 text-2xl text-white z-10">
-         
+      </div>
+      <div className="max-w-4xl mx-auto py-20 px-4">
+        <h1 className="text-5xl font-bold leading-tight mb-4">Câmera ultra-angular.<br/>Riqueza de detalhes<br/>para mais ou para menos.</h1>
+        <p className="text-lg text-gray-500">
+          A nova câmera ultra-angular com foco automático faz <span className="font-bold">fotos e vídeos macro</span> com <span className="font-bold">detalhes nítidos e surpreendentes</span>. Você também pode enquadrar <span className="font-bold">planos mais abertos</span> sem precisar dar passos para trás. E, com mais aproveitamento dos pixels e abertura maior, ela captura até <span className="font-bold">2,6 vezes mais luz</span> para elevar a qualidade da imagem, mesmo com pouca iluminação.
+        </p>
+      </div>
+      <div className="text-center py-10">
+        <Image
+          id="mainImage"
+          alt="A green frog with red eyes and orange feet on a blue background"
+          className="mx-auto"
+          height="400"
+          src={mainImage}
+          width="800"
+        />
+        <div className="mt-4 flex justify-center space-x-4">
+          <button className="bg-black text-white px-4 py-2 rounded-full" onClick={() => changeImage('macro')}>Macro</button>
+          <button className="bg-gray-200 text-black px-4 py-2 rounded-full" onClick={() => changeImage('0.5x')}>0,5x</button>
+          <button className="bg-gray-200 text-black px-4 py-2 rounded-full" onClick={() => changeImage('1x')}>1x</button>
+          <button className="bg-gray-200 text-black px-4 py-2 rounded-full" onClick={() => changeImage('2x')}>2x</button>
         </div>
       </div>
-    </div>
-    <Footer/>
+
+      <div className="max-w-4xl mx-auto py-20 px-4">
+        <h1 className="text-5xl font-bold leading-tight mb-4"><span className="text-pink-500">Novo sistema de câmera.</span><br/>Escolha por qual lente<br/>você quer ver o mundo.</h1>
+        <p className="text-lg text-gray-500">
+          A nova câmera ultra-angular com foco automático faz <span className="font-bold">fotos e vídeos macro</span> com <span className="font-bold">detalhes nítidos e surpreendentes</span>. Você também pode enquadrar <span className="font-bold">planos mais abertos</span> sem precisar dar passos para trás. E, com mais aproveitamento dos pixels e abertura maior, ela captura até <span className="font-bold">2,6 vezes mais luz</span> para elevar a qualidade da imagem, mesmo com pouca iluminação.
+        </p>
+      </div>
+      <Image
+          id="mainImage"
+          alt="A green frog with red eyes and orange feet on a blue background"
+          className=""
+          height="400"
+          src="/hero_camera__bsixees3ujte_xlarge.jpg"
+          width="800"
+        />
+
+      <Footer />
     </div>
   );
 }

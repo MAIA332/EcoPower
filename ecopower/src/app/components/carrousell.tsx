@@ -24,7 +24,7 @@ const Carousel: React.FC<{ slides: CarouselSlide[] }> = ({ slides }) => {
   };
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 5000);
+    const interval = setInterval(nextSlide, 10000);
     return () => clearInterval(interval);
   }, []);
 
@@ -37,10 +37,10 @@ const Carousel: React.FC<{ slides: CarouselSlide[] }> = ({ slides }) => {
             index === currentIndex ? "opacity-100" : "opacity-0"
           }`}
         >
-          <Image src={slide.src} alt={slide.alt} layout="fill" objectFit="cover" />
+          <Image src={slide.src} alt={slide.alt} layout="fill" objectFit="contain" />
 
           {/* Overlay Text and Button */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white p-4">
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-0 text-white p-4">
             <h2 className="text-4xl font-bold mb-2">{slide.title}</h2>
             <p className="text-lg mb-4">{slide.description}</p>
             <Button
