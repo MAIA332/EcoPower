@@ -29,7 +29,7 @@ const Carousel: React.FC<{ slides: CarouselSlide[] }> = ({ slides }) => {
   }, []);
 
   return (
-    <div className="relative w-full h-[900px] overflow-hidden">
+    <div className="relative w-full h-[900px] overflow-hidden mt-5">
       {slides.map((slide, index) => (
         <div
           key={index}
