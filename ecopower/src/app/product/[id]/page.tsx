@@ -8,7 +8,7 @@ import Footer from '@/app/components/footer';
 import Cart from '@/app/components/cart';
 import { FaShoppingCart } from 'react-icons/fa';
 import productsData from "../../../../products.json";
-import { useSearchParams  } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import Button from '@/app/components/button';
 
@@ -44,8 +44,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
 
 const Product: React.FC = () => {
 
-    const searchParams = useSearchParams();
-    const id = searchParams.get('id');
+    const { id } = useParams();
 
     console.log("id",id);
     
@@ -145,7 +144,7 @@ const Product: React.FC = () => {
                                     <p className="text-gray-500">{product.description}</p>
                                 </div>
                                 <p className="font-bold justify-start">R$ {product.price},00</p>
-                                <Button variant='dark' onClick={() => addToCart(product)}>Adicionar</Button>
+                                <Button variant='modern' className='mt-5' onClick={() => addToCart(product)}>Adicionar</Button>
                             </div>
                         </div>
                     </div>

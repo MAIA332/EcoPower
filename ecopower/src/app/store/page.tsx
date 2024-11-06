@@ -77,25 +77,35 @@ function page() {
           </div>
         </div>
         <div className="container mx-auto p-4">
-          <header className="text-center my-8">
-            <h1 className="text-4xl font-bold">Loja. <span className="font-normal">O melhor jeito de comprar o que você ama.</span></h1>
-          </header>
-          <section id="products_cards">
-            <h2 className="text-2xl font-bold mb-4">As novidades. <span className="font-normal">Veja o que acabou de chegar.</span></h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {products.map((product) => (
-                <div key={product.id} className="bg-white text-black p-4 rounded-lg h-96">
-                  <h3 className="text-xl font-bold">{product.name}</h3>
-                  <p>{product.description}</p>
-                  <p>A partir de {product.price}</p>
-                  <Image src={product.image[0]} alt={product.name} className="mt-4" width={100} height={100} />
-                  <Link href={`/product/${product.id}?id=${product.id}`}>
-                    <Button variant="dark" className="mt-5">Comprar</Button>
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </section>
+                <header className="text-center my-8">
+                    <h1 className="text-2xl md:text-4xl font-bold"><span className='text-pink-500'>Loja.</span> <span className="font-normal">O melhor jeito de comprar o que você ama.</span></h1>
+                </header>
+                <section id="products_cards">
+                    <h2 className="text-xl md:text-2xl font-bold mb-4"><span className='text-purple-700'>As novidades.</span> <span className="font-normal">Veja o que acabou de chegar.</span></h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        {products.map((product) => (
+                            <div key={product.id} className="bg-white text-black p-4 rounded-lg shadow-lg flex flex-col justify-between h-96">
+                                <div>
+                                    <h3 className="text-lg md:text-xl font-bold">{product.name}</h3>
+                                    <p className="text-sm md:text-base mt-1">{product.description}</p>
+                                    <p className="text-sm mt-2 font-semibold">A partir de R${product.price},00</p>
+                                    <Image
+                                        src={product.image[0]}
+                                        alt={product.name}
+                                        width={100}
+                                        height={100}
+                                        className="mx-auto mt-4"
+                                    />
+                                </div>
+                                <div className="mt-4">
+                                    <Link href={`/product/${product.id}?id=${product.id}`}>
+                                        <Button variant="modern" className="w-full mt-2">Comprar</Button>
+                                    </Link>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </section>
         </div>
         <Footer />
       </div>

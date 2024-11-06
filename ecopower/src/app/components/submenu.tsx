@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import Button from './button';
 
 function Submenu() {
   return (
@@ -7,8 +8,12 @@ function Submenu() {
       <div className="container mx-auto px-4 py-2 flex justify-between items-center bg-slate-100">
             <Link href='/'><h1 className="text-lg font-bold text-slate-950">Eco Power</h1></Link>
             <div className="flex space-x-4">
-                <Link href="/store" className="text-black">Comprar</Link>
-                <Link href="/specs" className="text-black">Especificações</Link>
+              <Button variant='sky-blue'>
+                <Link href="/store">Comprar</Link>
+              </Button>
+              <Button variant='light'>
+                <Link href="/specs">Especificações</Link>
+              </Button>
             </div>
         </div>
     </div>

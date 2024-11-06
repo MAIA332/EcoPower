@@ -7,7 +7,7 @@ type ButtonProps = {
   children: React.ReactNode;
   className?: string;
   disabled?: boolean;
-  variant: 'light' | 'dark' | 'disable'; 
+  variant: 'light' | 'dark' | 'disable' |'clickme'|'modern'|'sky-blue'; 
 };
 
 const Button: React.FC<ButtonProps> = ({
@@ -20,9 +20,12 @@ const Button: React.FC<ButtonProps> = ({
   const baseStyles = 'px-4 py-2 rounded-md focus:outline-none transition duration-200';
   
   const variantStyles = {
-    'light':'bg-white text-black hover:bg-gray-200',
+    'light':'bg-white text-black hover:bg-gray-200 ',
     'dark':'bg-gray-800 text-white hover:bg-gray-600',
-    'disable':'bg-gray-300 text-black'
+    'disable':'bg-gray-300 text-black',
+    'clickme':'bg-blue-600 text-white',
+    'sky-blue':'bg-blue-600 text-white py-2 px-4 rounded-full font-thin',
+    'modern':"bg-white overflow-hidden text-black font-thin border border-black transition-all duration-300 bg-transparent hover:bg-pink-500 hover:text-white hover:border-none"
   }
 
   const dinamic_style = disabled == true?variantStyles["disable"]:variantStyles[variant]

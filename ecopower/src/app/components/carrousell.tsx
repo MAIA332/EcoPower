@@ -29,7 +29,7 @@ const Carousel: React.FC<{ slides: CarouselSlide[] }> = ({ slides }) => {
   }, []);
 
   return (
-    <div className="relative w-full h-[900px] overflow-hidden mt-5">
+    <div className="relative w-full h-[500px] md:h-[900px] overflow-hidden mt-5">
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -37,16 +37,23 @@ const Carousel: React.FC<{ slides: CarouselSlide[] }> = ({ slides }) => {
             index === currentIndex ? "opacity-100" : "opacity-0"
           }`}
         >
-          <Image src={slide.src} alt={slide.alt} layout="fill" objectFit="contain" />
+          {/* Ajuste de objectFit para responsividade */}
+          <Image
+            src={slide.src}
+            alt={slide.alt}
+            layout="fill"
+            objectFit="cover" // Altere de "contain" para "cover"
+            className="w-full h-full object-center"
+          />
 
           {/* Overlay Text and Button */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-0 text-white p-4">
-            <h2 className="text-4xl font-bold mb-2">{slide.title}</h2>
-            <p className="text-lg mb-4">{slide.description}</p>
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white p-4 text-center">
+            <h2 className="text-2xl md:text-4xl font-bold mb-2">{slide.title}</h2>
+            <p className="text-sm md:text-lg mb-4">{slide.description}</p>
             <Button
               onClick={() => window.location.href = slide.buttonLink}
               variant={slide.buttonVariant}
-              className="text-lg font-semibold"
+              className="text-sm md:text-lg font-semibold px-4 py-2"
             >
               {slide.buttonText}
             </Button>
@@ -57,14 +64,14 @@ const Carousel: React.FC<{ slides: CarouselSlide[] }> = ({ slides }) => {
       {/* Navigation Buttons */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full"
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full md:left-8"
         aria-label="Previous Slide"
       >
         &#9664;
       </button>
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full"
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full md:right-8"
         aria-label="Next Slide"
       >
         &#9654;
