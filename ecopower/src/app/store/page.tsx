@@ -6,7 +6,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Navbar from '../components/navbar'
 import Submenu from '../components/submenu'
-import TypebotBubble from "../components/typebotBubble";
 import Footer from '../components/footer'
 import Button from '../components/button'
 import products from "../../../products.json"
@@ -15,6 +14,8 @@ import products from "../../../products.json"
 function page() {
     const [isSubmenuFixed, setIsSubmenuFixed] = useState<boolean>(false);
     const [prevScrollY, setPrevScrollY] = useState<number>(0);
+    const [hasRenderedTypebot, setHasRenderedTypebot] = useState<boolean>(false); // Novo estado
+
   
     const handleScroll = useCallback(() => {
       const scrollY = window.scrollY || window.scrollY;
@@ -40,11 +41,17 @@ function page() {
         window.removeEventListener("scroll", onScroll);
       };
     }, [handleScroll]);
+
+    useEffect(() => {
+        if (!hasRenderedTypebot) {
+          setHasRenderedTypebot(true);
+        }
+      }, [hasRenderedTypebot]);
   
     return (
       <div>
         <Navbar />
-        <TypebotBubble />
+        {/* {hasRenderedTypebot && <TypebotBubble />} */}
         <div id="submenu" className="bg-slate-50">
           <div
             id="submenu"
