@@ -1,0 +1,31 @@
+[
+    {
+      "id": "1",
+      "name": "Eco Power Pro",
+      "description": "Feito para Apple Intelligence^",
+      "price": "19.999",
+      "image": ["/Celular-Samsung-Galaxy-A15-8GB-RAM-SSD-256GB-Tela-Infinita-De-6-5-Azul-Escuro_1721399047_gg.webp"]
+    },
+    {
+      "id": "2",
+      "name": "iEco",
+      "description": "Feito para Apple Intelligence^",
+      "price": "15.499",
+      "image":[ "/218210.png"]
+    },
+    {
+      "id": "3",
+      "name": "Eco mini",
+      "description": "Feito para Apple Intelligence^",
+      "price": "7.499",
+      "image": ["/1188076-800-auto.webp"]
+    },
+    {
+      "id": "4",
+      "name": "Eco Power Z-flip",
+      "description": "O iPhone definitivo.",
+      "price": "10.499",
+      "image": ["/smartphone_5g_512gb_samsung_galaxy_z_flip_sm_f731b_ds_rosa_dm2t130722n_1665987_1_52ce4407aeb2afac7f504bc4429b7d06.webp"]
+    }
+  ]
+  

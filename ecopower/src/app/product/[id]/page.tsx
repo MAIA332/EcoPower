@@ -1,12 +1,24 @@
 "use client"
 // Product.tsx
+
 import React, { useCallback, useEffect, useState } from 'react';
 import Navbar from '@/app/components/navbar';
 import Submenu from '@/app/components/submenu';
 import Footer from '@/app/components/footer';
 import Cart from '@/app/components/cart';
-import { FaShoppingCart } from 'react-icons/fa'; // Import icons from React Icons
+import { FaShoppingCart } from 'react-icons/fa';
+import productsData from "../../../../products.json";
+import { useSearchParams  } from 'next/navigation';
+import Image from 'next/image';
+import Button from '@/app/components/button';
 
+interface ProductData {
+    id: string;
+    name: string;
+    description: string;
+    price: number;
+    image: string[];
+}
 
 interface FAQItemProps {
     question: string;
@@ -14,7 +26,7 @@ interface FAQItemProps {
 }
 
 const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
-    const [isOpen, setIsOpen] = React.useState(false);
+    const [isOpen, setIsOpen] = React.useState(true);
 
     return (
         <div>
@@ -30,23 +42,29 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
     );
 };
 
-function Product() {
-    const [isSubmenuFixed, setIsSubmenuFixed] = useState<boolean>(false);
-    const [prevScrollY, setPrevScrollY] = useState<number>(0);
-    const [cartItems, setCartItems] = useState<{ id: string; name: string; price: number }[]>([]);
-    const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
+const Product: React.FC = () => {
+
+    const searchParams = useSearchParams();
+    const id = searchParams.get('id');
+
+    console.log("id",id);
+    
+
+    const [product, setProduct] = useState<ProductData | null>(null);
+    const [isSubmenuFixed, setIsSubmenuFixed] = useState(false);
+    const [prevScrollY, setPrevScrollY] = useState(0);
+    const [cartItems, setCartItems] = useState<ProductData[]>([]);
+    const [isCartOpen, setIsCartOpen] = useState(false);
 
     const handleScroll = useCallback(() => {
-        const scrollY = window.scrollY || window.scrollY;
+        const scrollY = window.scrollY;
 
         if (scrollY === 0) {
             setIsSubmenuFixed(false);
         } else if (scrollY > prevScrollY) {
             setIsSubmenuFixed(true);
-        } else {
-            if (scrollY < 100) {
-                setIsSubmenuFixed(false);
-            }
+        } else if (scrollY < 100) {
+            setIsSubmenuFixed(false);
         }
 
         setPrevScrollY(scrollY);
@@ -65,50 +83,83 @@ function Product() {
         };
     }, [handleScroll]);
 
+    useEffect(() => {
+        if (id) {
+            const foundProduct = productsData.find((item) => item.id === id);
+
+            console.log("found product",foundProduct);
+            
+            if (foundProduct) {
+                setProduct({
+                    ...foundProduct,
+                    price: Number(foundProduct.price),
+                    image: Array.isArray(foundProduct.image) ? foundProduct.image : [foundProduct.image]
+                });
+            }
+        }
+    }, [id]);
+
+    console.log(product);
+    
+
     const toggleCart = () => {
         setIsCartOpen(!isCartOpen);
     };
 
-    const addToCart = (item: { id: string; name: string; price: number }) => {
+    const addToCart = (item: ProductData) => {
         setCartItems(prevItems => [...prevItems, item]);
     };
+
+    if (!product) {
+        return <div>Carregando...</div>;
+    }
 
     return (
         <div>
             <Navbar />
-            <button onClick={toggleCart} className="absolute right-4 top-4">
-                {cartItems.length > 0 && <span className="bg-red-500 text-white rounded-full px-2">{cartItems.length}</span>}
-                <FaShoppingCart className="text-gray-800 text-2xl hover:text-gray-600" />
-            </button>
+            
             {isCartOpen && <Cart items={cartItems} onClose={toggleCart} />}
             <div
                 id="submenu"
-                className={`transition-all duration-200 ease-in-out bg-gray-100 ${isSubmenuFixed ? 'fixed left-0 right-0 top-0 z-20 opacity-100 transform translate-y-0' : 'relative transform translate-y'}`}
+                className={`transition-all duration-200 ease-in-out bg-gray-100 ${isSubmenuFixed ? 'fixed left-0 right-0 top-0 z-20 opacity-100' : 'relative'}`}
             >
                 <Submenu />
             </div>
+            
             <div className="max-w-screen-lg mx-auto p-4">
+                <button onClick={toggleCart} className=" right-4 top-4">
+                    {cartItems.length > 0 && <span className="bg-red-500 text-white rounded-full px-2">{cartItems.length}</span>}
+                    <FaShoppingCart className="text-gray-800 text-2xl hover:text-gray-600" />
+                </button>
                 <div className="text-center">
                     <p className="text-red-600 font-bold">Novo</p>
-                    <h1 className="text-4xl font-bold">Comprar iPhone 16 Pro</h1>
-                    <p className="text-lg mt-2">A partir de R$ 10.499</p>
+                    <h1 className="text-4xl font-bold">Comprar {product.name}</h1>
+                    <p className="text-lg mt-2">A partir de R$ {product.price},00</p>
                 </div>
                 <div className="flex flex-col lg:flex-row mt-8">
                     <div className="lg:w-1/3 lg:pr-8">
                         <div className="mt-4 space-y-4">
-                            <div className="border rounded-lg p-4 flex justify-between items-center">
+                            <div className="border rounded-lg p-4 flex flex-col">
                                 <div>
-                                    <p className="font-bold">iPhone 16 Pro</p>
-                                    <p className="text-gray-500">Tela de 6,3 polegadas¹</p>
+                                    <p className="font-bold">{product.name}</p>
+                                    <p className="text-gray-500">{product.description}</p>
                                 </div>
-                                <p className="font-bold">A partir de R$ 10.499</p>
-                                <button onClick={() => addToCart({ id: '1', name: 'iPhone 16 Pro', price: 10499 })}>Adicionar</button>
+                                <p className="font-bold justify-start">R$ {product.price},00</p>
+                                <Button variant='dark' onClick={() => addToCart(product)}>Adicionar</Button>
                             </div>
                         </div>
                     </div>
                     <div className="lg:w-2/3 flex justify-center mt-8 lg:mt-0">
-                        <img src="/600x400.svg" alt="iPhone 16 Pro in hand" className="w-1/2 max-w-xs" />
-                        <img src="/600x400.svg" alt="iPhone 16 Pro Max in hand" className="w-1/2 max-w-xs" />
+                        {product.image?.map((image, index) => (
+                            <Image
+                                key={index}
+                                src={image}
+                                alt={`${product.name} image ${index + 1}`}
+                                className="w-1/2 max-w-xs"
+                                width={900}
+                                height={900}
+                            />
+                        ))}
                     </div>
                 </div>
             </div>
@@ -136,6 +187,6 @@ function Product() {
             <Footer />
         </div>
     );
-}
+};
 
 export default Product;

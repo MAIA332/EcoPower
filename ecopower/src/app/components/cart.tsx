@@ -1,6 +1,5 @@
 "use client"
 // components/Cart.tsx
-import React, { useEffect } from 'react';
 import Button from './button';
 
 interface CartItem {
@@ -21,13 +20,13 @@ const Cart: React.FC<{ items: CartItem[]; onClose: () => void }> = ({ items, onC
                     {items.map((item) => (
                         <li key={item.id} className="flex justify-between py-2">
                             <span>{item.name}</span>
-                            <span>R$ {item.price.toFixed(2)}</span>
+                            <span>R$ {item.price}</span>
                         </li>
                     ))}
                 </ul>
             )}
             <div className="border-t mt-4 pt-2">
-                <h3 className="font-bold">Total: R$ {items.reduce((acc, item) => acc + item.price, 0).toFixed(2)}</h3>
+                <h3 className="font-bold">Total: R$ {items.reduce((acc, item) => acc + item.price, 0)}</h3>
             </div>
 
             <Button

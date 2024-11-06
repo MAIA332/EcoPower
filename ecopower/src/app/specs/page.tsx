@@ -17,7 +17,7 @@ const phoneSpecs = [
       thickness: '7,80 mm',
       weight: '170 gramas'
     },
-    imageSrc: '/600x400.svg',
+    imageSrc: '/1188076-800-auto.webp',
     altText: 'Imagem de um telefone com altura: 147,6 mm, largura: 71,6 mm, espessura: 7,80 mm'
   },
   {
@@ -28,7 +28,7 @@ const phoneSpecs = [
       thickness: '7,80 mm',
       weight: '199 gramas'
     },
-    imageSrc: '/600x400.svg',
+    imageSrc: '/218210.png',
     altText: 'Imagem de um telefone com altura: 160,9 mm, largura: 77,8 mm, espessura: 7,80 mm'
   }
 ];

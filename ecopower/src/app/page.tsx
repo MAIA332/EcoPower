@@ -96,7 +96,7 @@ const Home: React.FC = () => {
       title: "Eficiência energética",
       description: "Economize bateria e ajude o meio ambiente!",
       buttonText: "SAIBA MAIS",
-      buttonLink: "/about",
+      buttonLink: "/store",
       buttonVariant: "dark" as const, 
     }
   ];
