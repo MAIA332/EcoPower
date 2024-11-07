@@ -26,6 +26,7 @@ const Carousel: React.FC<{ slides: CarouselSlide[] }> = ({ slides }) => {
   useEffect(() => {
     const interval = setInterval(nextSlide, 10000);
     return () => clearInterval(interval);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -37,16 +38,14 @@ const Carousel: React.FC<{ slides: CarouselSlide[] }> = ({ slides }) => {
             index === currentIndex ? "opacity-100" : "opacity-0"
           }`}
         >
-          {/* Ajuste de objectFit para responsividade */}
           <Image
             src={slide.src}
             alt={slide.alt}
             layout="fill"
-            objectFit="cover" // Altere de "contain" para "cover"
+            objectFit="cover" 
             className="w-full h-full object-center"
           />
 
-          {/* Overlay Text and Button */}
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white p-4 text-center">
             <h2 className="text-2xl md:text-4xl font-bold mb-2">{slide.title}</h2>
             <p className="text-sm md:text-lg mb-4">{slide.description}</p>
@@ -61,7 +60,6 @@ const Carousel: React.FC<{ slides: CarouselSlide[] }> = ({ slides }) => {
         </div>
       ))}
 
-      {/* Navigation Buttons */}
       <button
         onClick={prevSlide}
         className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full md:left-8"
@@ -77,7 +75,6 @@ const Carousel: React.FC<{ slides: CarouselSlide[] }> = ({ slides }) => {
         &#9654;
       </button>
 
-      {/* Indicators */}
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
         {slides.map((_, index) => (
           <span

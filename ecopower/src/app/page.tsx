@@ -17,9 +17,6 @@ const Home: React.FC = () => {
   const [isSubmenuFixed, setIsSubmenuFixed] = useState<boolean>(false);
   const [prevScrollY, setPrevScrollY] = useState<number>(0);
   const [mainImage, setMainImage] = useState<string>("/ra.jpg");
-  const [hasRenderedTypebot, setHasRenderedTypebot] = useState<boolean>(
-    () => !!sessionStorage.getItem('hasRenderedTypebot')
-  );
 
 
   const handleScroll = useCallback(() => {
@@ -84,13 +81,6 @@ const Home: React.FC = () => {
     buttonVariant: 'light' | 'dark' | 'disable'; 
   };
 
-  useEffect(() => {
-    if (!hasRenderedTypebot) {
-      setHasRenderedTypebot(true);
-      sessionStorage.setItem('hasRenderedTypebot', 'true');
-    }
-  }, [hasRenderedTypebot]);
-
   const carouselSlides: CarouselSlide[] = [
     {
       src: "/photo-1730653223607-d06982f92a74.avif",
@@ -133,7 +123,7 @@ const Home: React.FC = () => {
   return (
     <div className="bg-white !scroll-smooth">
       <Navbar />
-      {hasRenderedTypebot && <TypebotBubble />}
+      {<TypebotBubble />}
 
       <div
         id="submenu"

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaUser, FaBars, FaTimes } from 'react-icons/fa';
+import {FaBars, FaTimes } from 'react-icons/fa';
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -31,20 +31,15 @@ function Navbar() {
           } lg:translate-x-0 z-30`}
         >
           <Link href="/store" className="block lg:inline-block py-2 px-4 text-black">Loja</Link>
-          <Link href="/" className={`block lg:inline-block py-2 ${isMobileMenuOpen?``:`px-4`} text-black`}>Sobre</Link>
         </nav>
 
-        <div className="hidden lg:flex space-x-6 items-center">
-          <Link href="/profile" aria-label="Profile">
-            <FaUser className="text-gray-800 text-2xl hover:text-gray-600" />
-          </Link>
-        </div>
+        
       </div>
 
       {isMobileMenuOpen && (
         <div
           className="fixed inset-0 bg-black opacity-50 z-10"
-          onClick={toggleMobileMenu} // Fecha o menu ao clicar no overlay
+          onClick={toggleMobileMenu}
         />
       )}
     </header>
