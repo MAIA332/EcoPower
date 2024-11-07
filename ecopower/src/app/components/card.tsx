@@ -6,7 +6,6 @@ type CardProps = {
     imageSrc: string,
     title: string,
     text: string,
-    linkRedirect: string,
     linkText: string,
     id: string,
     className?: string;
@@ -16,7 +15,6 @@ const Card: React.FC<CardProps> = ({
     imageSrc = "",
     title = "",
     text = "",
-    linkRedirect = "",
     linkText = "",
     id = "",
     className = "" // Definindo um valor padrão

@@ -141,7 +141,6 @@ const Home: React.FC = () => {
                 imageSrc={item.imageSrc}
                 title={item.title}
                 text={item.text}
-                linkRedirect={item.linkRedirect}
                 linkText={item.linkText}
                 id={item.id}
               />
